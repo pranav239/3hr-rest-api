@@ -140,10 +140,7 @@
       }
 
       
-      window.addEventListener("DOMContentLoaded", () => {
-        fetchItemsFromDatabase();
-      });
-
+      
      
       function createListItem(item) {
         const newItem = document.createElement("li");
@@ -159,7 +156,7 @@
       
       function buy(itemId, decrementBy) {
         const quantityElement = document.getElementById(`quantity_${itemId}`);
-        let quantity = parseInt(quantityElement.innerText);
+        let quantity = quantityElement.innerText;
 
         if (quantity >= decrementBy) {
           quantity -= decrementBy;
@@ -186,8 +183,8 @@
       function addToList() {
         const name = document.getElementById("name").value;
         const description = document.getElementById("description").value;
-        const price = parseFloat(document.getElementById("price").value);
-        const quantity = parseInt(document.getElementById("quantity").value);
+        const price = document.getElementById("price").value;
+        const quantity = document.getElementById("quantity").value;
 
         if (isNaN(price) || isNaN(quantity)) {
           alert("Please enter valid numeric values for price and quantity.");
